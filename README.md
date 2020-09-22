@@ -1,4 +1,5 @@
 
+![Frontend](home.png)
 
 ## clone the repo
 git clone https://github.com/aka-jumba/frontend_angular.git
@@ -12,7 +13,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files. Used proxy to take request from flask as backend from port 5000.
+![Request_getting_diverted](serving_port_5000.png)
 
 ## Code scaffolding
 
