@@ -1,14 +1,14 @@
-Quick start
-# clone the repo
+
+## clone the repo
 git clone https://github.com/aka-jumba/frontend_angular.git
 
-# change directory
+## change directory
 cd frontend
 
-# install the repo with npm
+## install the repo with npm
 npm install
 
-# start the server
+## start the server
 npm start
 in your browser go to http://localhost:4200
 
