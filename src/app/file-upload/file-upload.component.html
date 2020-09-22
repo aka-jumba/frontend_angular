@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="jumbotron header">
+        <h1><b>Elucidata</b> Data Processing Application</h1>
+      </div>
+      <div class="form-container">
+        <div>
+          <h4>Upload a file to process</h4>
+          <div class="input-group my-3">
+            <div class="custom-file">
+                
+              <input
+                type="file"
+                class="custom-file-input"
+                id="file"
+                (change)="handleFileInput($event.target.files)"
+                aria-describedby="inputGroupFileAddon01"
+              />
+              <label class="custom-file-label" for="inputGroupFile01"
+                >{{fileToUpload.name}}</label>
+              
+            </div>
+          </div>
+          <button class="btn btn-primary mb-2" (click) = "uploadFileToActivity($event)">Send the file!</button>
+          <div class="alert alert-success" role="alert" *ngIf = "isSuccess()">
+            Successfully uploaded the file {{lastSentFile}} ! File name: {{uploadedFile}}
+          </div>
+          <div class="alert alert-danger" role="alert" *ngIf = "hasUploadFailed()">
+            Failed to upload the file! Please check that the file is excel sheet with extension .xlsx only.
+          </div>
+        </div>
+        <hr />
+        <div>
+          <h4>Task 1: Split into three databases</h4>
+          <p class="text-muted mb-3">Filter out all the data for metabolite ids ending with:
+            ‘PC’, ‘LPC’ and ‘plasmalogen’, and create 3 child datasets (1 for each compound id) from the data in input file.</p>
+            <form class="form-inline">
+                <div class="form-group mx-sm-3 mb-2">
+                  <label for="filename" class="sr-only">File name</label>
+                  <input type="text"  class="form-control input-large search-query" placeholder="Enter file name" value = {{taskOneFile}} (change)= "taskOne($event.target.value)">
+                </div>
+                <button class="btn btn-primary mb-2" (click) = "doTaskOne($event)">Perform Task 1!</button>
+              </form>
+        </div>
+        <hr />
+
+        <div>
+            <h4>Task 2: Add a column to the parent dataset</h4>
+            <p class="text-muted mb-3"> Add a new column in the parent dataset with the name “Retention Time Roundoff (in mins)”. This column
+                should have rounded-off values of the corresponding retention time. Retention time should be rounded-off to
+                the nearest natural number.</p>
+                <form class="form-inline">
+                    <div class="form-group mx-sm-3 mb-2">
+                      <label for="filename" class="sr-only">File name</label>
+                      <input type="text" class="form-control" placeholder="Enter file name" value = {{taskTwoFile}} (change)= "taskTwo($event.target.value)">
+                    </div>
+                    <button class="btn btn-primary mb-2" (click) = "doTaskTwo($event)">Perform Task 2!</button>
+                  </form>
+          </div>
+          <hr />
+
+          <div>
+            <h4>Task 3: Mean of metabolites with same retention(roundoff)</h4>
+            <p class="text-muted mb-3"> After task two, you should find the mean of all the metabolites which have same "Retention Time Roundoff"
+                across all the samples. The resultant of above operation should be a new data-frame where you have to
+                include the "Retention Time Roundoff" column and all samples. You don't have to include columns like m/z,
+                Accepted Compound Id and Retention time.
+                You should create a new data-frame for each </p>
+                <form class="form-inline">
+                    <div class="form-group mx-sm-3 mb-2">
+                      <label for="filename" class="sr-only">File name</label>
+                      <input type="text" class="form-control" placeholder="Enter file name" value = {{taskThreeFile}} (change)= "taskThree($event.target.value)">
+                    </div>
+                    <button class="btn btn-primary mb-2" (click) = "doTaskThree($event)">Perform Task 3!</button>
+                  </form>
+          </div>
+          <hr />
+          <div class="alert alert-secondary" role="alert" *ngIf = "showStatus()" id = "status">
+            {{errorMessage}}
+        </div>
+
+
+      </div>
+      
+</body>
+</html>
+

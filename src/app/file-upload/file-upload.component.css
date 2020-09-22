@@ -1,0 +1,16 @@
+.jumbotron.header {
+    background-color: #0B1354;
+    color: white;
+    border-radius: 0;
+    border-bottom: 8px solid #F765A3;
+    margin-bottom: 0;
+    padding: 5rem;
+    box-sizing: border-box;
+}
+
+.form-container {
+    min-height: 20rem;
+    padding: 5rem;
+    width: 70%;
+    background-color: #FFF;
+}
