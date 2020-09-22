@@ -1,3 +1,18 @@
+Quick start
+# clone the repo
+git clone https://github.com/aka-jumba/frontend_angular.git
+
+# change directory
+cd frontend
+
+# install the repo with npm
+npm install
+
+# start the server
+npm start
+in your browser go to http://localhost:4200
+
+
 # Frontend
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.2.
